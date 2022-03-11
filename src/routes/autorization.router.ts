@@ -8,10 +8,10 @@ const autorizationRoute = Router()
 autorizationRoute.post('/token',basicAutenticationMiddware , async(req:Request,res:Response,next:NextFunction)=>{
    try {
       
-       const jwtPayload={username:req.user.username}
-       const jwtOption={subject:req.user?.uuid}
-       const secretKey='my_secret_key'
-        JWT.sign(jwtPayload,secretKey,jwtOption)
+       const jwtPayload = {username:req.user.username}
+       const jwtSubject = {subject:req.user?.uuid}
+       const secretKey  = 'my_secret_key'
+        JWT.sign(jwtPayload,secretKey,jwtSubject)
 
    } catch (error) {
        next(error)
