@@ -3,13 +3,13 @@ import userRouters from './routes/users.routes'
 import statusRouters from './routes/status.route'
 import errorHandler from './middlewares/error-handdler.middlewares'
 import autorizationRoute from './routes/autorization.router'
-import bearerAutenticationMiddwerrerlawar from './middlewares/bearerAutenticationMiddwerrerlawar'
+import bearerAutenticationMiddwerrerlawar from './middlewares/jwtAutenticationMiddwerrerlawar'
 const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-app.use(bearerAutenticationMiddwerrerlawar,userRouters)
+app.use(userRouters)
 app.use(statusRouters)
 
 

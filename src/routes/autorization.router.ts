@@ -3,7 +3,12 @@ import ForbuddenError from '../models/error/forbidden.error.model'
 import userRepository from '../repositories/user.repository'
 import JWT from 'jsonwebtoken'
 import basicAutenticationMiddware from '../middlewares/basic.autentication.middware'
+import jwtAutenticationMiddwerrerlawar from '../middlewares/jwtAutenticationMiddwerrerlawar'
 const autorizationRoute = Router()
+
+autorizationRoute.post('/token/validate',jwtAutenticationMiddwerrerlawar , async(req:Request,res:Response,next:NextFunction)=>{
+    res.sendStatus(200)
+})
 
 autorizationRoute.post('/token',basicAutenticationMiddware , async(req:Request,res:Response,next:NextFunction)=>{
    try {
@@ -19,4 +24,5 @@ autorizationRoute.post('/token',basicAutenticationMiddware , async(req:Request,r
  
    
 })
+
 export default autorizationRoute
